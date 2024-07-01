@@ -3,15 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bild und Video</title>
+    <title>Medien Galerie</title>
+    <link rel="stylesheet" href="styles.css">
+	<script src="script.js"></script>
 </head>
 <body>
-    <h1>Mein Bild und Video</h1>
-    <img src="URL_DEINES_BILDES" alt="Bildbeschreibung" style="max-width: 100%; height: auto;">
-    <br>
-    <video width="320" height="240" controls>
-        <source src="URL_DEINES_VIDEOS" type="video/mp4">
-        Dein Browser unterstützt kein HTML5-Video.
-    </video>
+    <div class="gallery">
+        <div class="gallery-item active">
+            <video id="intro-video" controls>
+                <source src="images/fulls/Video.mp4" type="video/mp4">
+                Dein Browser unterstützt kein HTML5-Video.
+            </video>
+        </div>
+        <div class="gallery-item">
+            <img src="images/fulls/1.jpg" alt="Bild 1">
+        </div>
+        <div class="gallery-item">
+            <img src="images/fulls/2.jpg" alt="Bild 2">
+        </div>
+		<div class="gallery-item">
+            <img src="images/fulls/3.jpg" alt="Bild 3">
+        </div>
+		<div class="gallery-item">
+            <img src="images/fulls/4.jpg" alt="Bild 4">
+        </div>
+		<div class="gallery-item">
+            <img src="images/fulls/5.jpg" alt="Bild 5">
+        </div>
+		<div class="gallery-item">
+            <img src="images/fulls/6.jpg" alt="Bild 6">
+        </div>
+		<div class="gallery-item">
+            <img src="images/fulls/7.jpg" alt="Bild 7">
+        </div>
+		<div class="gallery-item">
+            <img src="images/fulls/8.jpg" alt="Bild 8">
+        </div>
+		<div class="gallery-item">
+            <img src="images/fulls/9.jpg" alt="Bild 9">
+        </div>
+		<div class="gallery-item">
+            <img src="images/fulls/10.jpg" alt="Bild 10">
+        </div>
+		<div class="gallery-item">
+            <img src="images/fulls/11.jpg" alt="Bild 11">
+        </div>
+		<div class="gallery-item">
+            <img src="images/fulls/12.jpg" alt="Bild 12">
+        </div>
+		<div class="gallery-item">
+            <img src="images/fulls/13.jpg" alt="Bild 13">
+        </div>
+		<div class="gallery-item">
+            <img src="images/fulls/14.jpg" alt="Bild 14">
+        </div>
+		<div class="gallery-item">
+            <img src="images/fulls/15.jpg" alt="Bild 15">
+        </div>
+		<div class="gallery-item">
+            <img src="images/fulls/16.jpg" alt="Bild 16">
+        </div>
+		<div class="gallery-item">
+            <img src="images/fulls/17.jpg" alt="Bild 17">
+        </div>
+		<div class="gallery-item">
+            <img src="images/fulls/18.jpg" alt="Bild 18">
+        </div>
+		<div class="gallery-item">
+            <img src="images/fulls/19.jpg" alt="Bild 19">
+        </div>
+		<div class="gallery-item">
+            <img src="images/fulls/20.jpg" alt="Bild 20">
+        </div>
+		<div class="gallery-item">
+            <img src="images/fulls/21.jpg" alt="Bild 21">
+        </div>
+		<div class="gallery-item">
+            <img src="images/fulls/22.jpg" alt="Bild 22">
+        </div>
+		<div class="gallery-item">
+            <img src="images/fulls/23.jpg" alt="Bild 23">
+        </div>
+		<div class="gallery-item">
+            <img src="images/fulls/24.jpg" alt="Bild 24">
+        </div>
+		<div class="gallery-item">
+            <img src="images/fulls/25.jpg" alt="Bild 25">
+        </div>
+		<div class="gallery-item">
+            <img src="images/fulls/26.jpg" alt="Bild 26">
+        </div>
+        <!-- Weitere Bilder hier -->
+        <div class="navigation">
+            <button id="prev" class="nav-button">❮</button>
+            <button id="next" class="nav-button">❯</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
