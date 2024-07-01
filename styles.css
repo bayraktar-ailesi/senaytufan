@@ -16,8 +16,14 @@ body, html {
     overflow: hidden;
 }
 
+/* Ensure the video controls are always on top */
+video {
+    position: relative;
+    z-index: 1;
+}
+
 .gallery-item {
-    position: absolute;
+    position: relative;
     top: 0;
     left: 0;
     width: 100%;
@@ -53,6 +59,8 @@ body, html {
     padding: 0.5em;
     cursor: pointer;
     user-select: none;
+    position: relative;
+    z-index: 2;
 }
 
 .nav-button:focus {
