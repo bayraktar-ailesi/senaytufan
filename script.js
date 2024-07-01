@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const items = document.querySelectorAll('.gallery-item');
     const prevButton = document.getElementById('prev');
     const nextButton = document.getElementById('next');
+    const video = document.getElementById('intro-video');
     let currentIndex = 0;
     let slideshowInterval;
 
@@ -9,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
         items.forEach((item, i) => {
             item.classList.toggle('active', i === index);
         });
+        checkVideoEnd(); // Überprüfe bei jedem Wechsel, ob das aktuelle Element ein Video ist
     };
 
     const showNextItem = () => {
@@ -32,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
     nextButton.addEventListener('click', () => {
         stopSlideshow();
         showNextItem();
-        if (items[currentIndex].tagName.toLowerCase() !== 'video') {
+        if (!document.querySelector('.gallery-item.active video')) {
             startSlideshow();
         }
     });
@@ -40,27 +42,38 @@ document.addEventListener('DOMContentLoaded', function() {
     prevButton.addEventListener('click', () => {
         stopSlideshow();
         showPrevItem();
-        if (items[currentIndex].tagName.toLowerCase() !== 'video') {
+        if (!document.querySelector('.gallery-item.active video')) {
             startSlideshow();
         }
     });
 
-    // Initial display
-    showItem(currentIndex);
-
     // Check if current item is a video and wait for it to end
     const checkVideoEnd = () => {
-        const video = document.querySelector('.gallery-item.active video');
-        if (video) {
-            video.addEventListener('ended', () => {
-                showNextItem();
-                startSlideshow();
-            });
+        const activeVideo = document.querySelector('.gallery-item.active video');
+        if (activeVideo) {
+            stopSlideshow(); // Stoppe die Diashow, wenn ein Video angezeigt wird
+            activeVideo.removeEventListener('ended', videoEndedHandler);
+            activeVideo.addEventListener('ended', videoEndedHandler);
         } else {
             startSlideshow();
         }
     };
 
-    // Start the check on load
-    checkVideoEnd();
+    const videoEndedHandler = () => {
+        showNextItem();
+        startSlideshow();
+    };
+
+    // Initial display
+    showItem(currentIndex);
+
+    // Start the slideshow for images if the first item is not a video
+    if (!document.querySelector('.gallery-item.active video')) {
+        startSlideshow();
+    }
+
+    // Manually play the video on the first touch event on mobile devices
+    video.addEventListener('click', () => {
+        video.play();
+    });
 });
